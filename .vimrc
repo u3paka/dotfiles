@@ -1,3 +1,48 @@
+" dein Scripts-----------------------------
+if &compatible
+    set nocompatible               " Be iMproved
+endif
+
+" reset augroup
+augroup MyAutoCmd
+    autocmd!
+augroup END
+
+let s:dein_dir = $HOME . '/.cache/dein'
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+
+let s:toml_dir = $HOME . '/.vim/toml'
+
+if &runtimepath !~# '/dein.vim'
+    if !isdirectory(s:dein_repo_dir)
+        execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+    endif
+    execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+endif
+
+" Required:
+" set runtimepath+=/home/paka3/.vim/bundles/repos/github.com/Shougo/dein.vim
+
+" Required:
+if dein#load_state(s:dein_dir)
+    call dein#begin(s:dein_dir)
+    call dein#load_toml(s:toml_dir . '/dein.toml', {'lazy': 0})
+    call dein#load_toml(s:toml_dir . '/dein_lazy.toml', {'lazy': 1})
+
+    " Required:
+    call dein#end()
+    call dein#save_state()
+endif
+
+" Required:
+filetype plugin indent on
+syntax enable
+
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+    call dein#install()
+endif
+"End dein Scripts-------------------------
 
 set encoding=utf-8
 scriptencoding utf-8
@@ -22,51 +67,8 @@ set hlsearch " 検索結果をハイライト
 " ESCキー2度押しでハイライトの切り替え
 nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 
-
-
-"dein Scripts-----------------------------
-if &compatible
-    set nocompatible               " Be iMproved
-endif
-" Required:
-set runtimepath+=/home/paka3/.vim/bundles/repos/github.com/Shougo/dein.vim
-
-" Required:
-if dein#load_state('/home/paka3/.vim/bundles')
-    call dein#begin('/home/paka3/.vim/bundles')
-
-    " Let dein manage dein
-    " Required:
-    call dein#add('/home/paka3/.vim/bundles/repos/github.com/Shougo/dein.vim')
-
-    " Add or remove your plugins here like this:
-    "call dein#add('Shougo/neosnippet.vim')
-    "call dein#add('Shougo/neosnippet-snippets')
-    call dein#add('scrooloose/nerdtree')
-    call dein#add('bronson/vim-trailing-whitespace')
-    call dein#add('tomtom/tcomment_vim')
-    call dein#add('elixir-editors/vim-elixir')
-    call dein#add('tomasr/molokai')
-    call dein#add('itchyny/lightline.vim')
-
-    " Required:
-    call dein#end()
-    call dein#save_state()
-endif
-
-" Required:
-filetype plugin indent on
-syntax enable
-
-" If you want to install not installed plugins on startup.
-if dein#check_install()
-    call dein#install()
-endif
-
-"End dein Scripts-------------------------
-
-" molokai setting
-colorscheme molokai " カラースキームにmolokaiを設定する
+" color setting"
+" colorscheme iceberg " カラースキームにmolokaiを設定する
 
 set t_Co=256 " iTerm2など既に256色環境なら無くても良い
 syntax enable " 構文に色を付ける
@@ -80,7 +82,6 @@ set ruler " ステータスラインの右側にカーソルの位置を表示�
 
 " showbreaks
 set showbreak=↪
-
 set whichwrap=b,s,h,l,<,>,[,],~
 set number
 set cursorline
@@ -88,15 +89,38 @@ set cursorline
 " NERDTree setting
 autocmd VimEnter * execute 'NERDTree'
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-nnoremap <C-e> :NERDTreeToggle<CR>
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+nnoremap <S-e> :NERDTreeToggle<CR>
+
+" windows operation s
+nnoremap sn gt
+nnoremap sp gT
+nnoremap st :tabnew<CR>
+nnoremap sh <C-w>h
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+
+nnoremap sH <C-w>H
+nnoremap sJ <C-w>J
+nnoremap sK <C-w>K
+nnoremap sL <C-w>L
+nnoremap sq :q<CR>
+
+nnoremap ss :split<CR>
+nnoremap sv :vsplit<CR>
+
+inoremap <C-s> <C-c>:w<CR>i
 
 " mapping
 nnoremap j gj
 nnoremap k gk
 nnoremap <down> gj
 nnoremap <up> gk
+nnoremap ; :
+nnoremap : ;
 
+nnoremap <up> gk
 noremap <S-h>   ^
 noremap <S-j>   }
 noremap <S-k>   {
@@ -104,7 +128,6 @@ noremap <S-l>   $
 noremap m  %
 nnoremap <CR> A<CR><ESC>
 nnoremap == gg=G''
-
 " バックスペースキーの有効化
 set backspace=indent,eol,start
 

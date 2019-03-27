@@ -1,0 +1,40 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+
+[[plugins]]
+repo = 'bronson/vim-trailing-whitespace'
+
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
+
+[[plugins]]
+repo = 'elixir-editors/vim-elixir'
+
+[[plugins]]
+repo = 'slashmili/alchemist.vim'
+
+[[plugins]]
+repo = 'cocopon/iceberg.vim'
+
+hook_add = '''
+set background=dark
+" colorscheme 設定は source 後に行う必要があるので VimEnter で行う。
+" 但し Colorscheme イベントの発生が抑制されないよう nented を付ける。
+au MyAutoCmd VimEnter * nested colorscheme iceberg
+'''
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+hook_add = '''
+if !has('nvim')
+call dein#add('roxma/nvim-yarp')
+call dein#add('roxma/vim-hug-neovim-rpc')
+endif
+let g:deoplete#enable_at_startup = 1
+'''
