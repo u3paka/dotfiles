@@ -1,0 +1,62 @@
+<html oncontextmenu="return false">
+<head>
+<meta http-quiv="Pramga" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>NW利用の注意事項</title>
+<link rel="stylesheet" type="text/css" href="../css/style.css" />
+<style type="text/css">
+<!--
+body {width:900px;margin:auto;}
+-->
+</style>
+</head>
+<body>
+<br>
+<img src="../images/logo.jpg" width="300px"><br>
+<br>
+<center>
+ユーザIDで認証します。<br>
+Authenticate with your user ID.<br>
+<br>
+<div style="margin:0px;padding:0px;" align="center">
+<div style="margin:0px;padding:0px;line-height:1.5;width:700px;">
+<div style="margin:0px;padding:10px;line-height:1.5;overflow:auto;border: 2px solid #7030a0;text-align:left;font-size:100%;height:14em;">
+本学のネットワークは、教育研究活動を支援することを目的として整備されています。
+以下に示す内容を踏まえた上で、 学習や研究活動に大いに活用してください。<br />
+Doshisha University’s network was developed to support educational and 
+research activities. As you harness it as a tool to further your learning and research, 
+bear in mind the following:<br />
+<br />
+
+①本学のネットワークは、教育研究を支援するために整備されており、<br>
+　個人的趣味や商用のために開放されているものではありません。<br>
+　Doshisha University’s network was developed to support education and research.<br>
+　It is not intended to be used to further personal interests or ommercial activities.<br>
+<br>
+②本学のネットワークは、良識にもとづき利用しなければなりません。<br>
+　Your use of the network must be based on the principles of common sense.<br>
+<br>
+③学内ネットワーク利用に関する諸規程に沿った利用でなくてはなりません。<br>
+　Use of the campus network must be in conformity with all applicable rules.<br>
+<br>
+④違反行為には、その内容に応じた制裁措置がとられます。<br>
+　Punitive measures will be taken in response to behavior that violates those rules.<br>
+</div>
+</div>
+</div>
+<br>
+Agree ボタンを押すとネットワークが利用可能となります。<br>
+Doshisha University's network is available by pressing the Agree button.<br>
+<br>
+	<form method="POST" action="http://202.23.130.254/cgi-bin/adeflogin.cgi">
+	<input name="name" type="hidden" value="abcd">
+	<input name="pass" type="hidden" value="abcd">
+	<input name="buttonClicked" type="hidden" value="4">
+	<button class="submit_button_rich" type="submit">Agree</button>
+</form>
+</center>
+<hr>
+<div align="right">Doshisha University IT Support Office</div>
+</body>
+</html>

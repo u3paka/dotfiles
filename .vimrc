@@ -68,8 +68,6 @@ set hlsearch " 検索結果をハイライト
 nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 
 " color setting"
-" colorscheme iceberg " カラースキームにmolokaiを設定する
-
 set t_Co=256 " iTerm2など既に256色環境なら無くても良い
 syntax enable " 構文に色を付ける
 
@@ -80,6 +78,7 @@ set showcmd " 打ったコマンドをステータスラインの下に表示
 set ruler " ステータスラインの右側にカーソルの位置を表示する
 
 
+
 " showbreaks
 set showbreak=↪
 set whichwrap=b,s,h,l,<,>,[,],~
@@ -87,10 +86,10 @@ set number
 set cursorline
 
 " NERDTree setting
-autocmd VimEnter * execute 'NERDTree'
+" autocmd VimEnter * execute 'NERDTree'
 autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-nnoremap <S-e> :NERDTreeToggle<CR>
+nnoremap se :NERDTreeToggle<CR>
 
 " windows operation s
 nnoremap sn gt
@@ -105,16 +104,19 @@ nnoremap sH <C-w>H
 nnoremap sJ <C-w>J
 nnoremap sK <C-w>K
 nnoremap sL <C-w>L
-nnoremap sq :q<CR>
+nnoremap sq :quit<CR>
 
 nnoremap ss :split<CR>
 nnoremap sv :vsplit<CR>
 
-inoremap <C-s> <C-c>:w<CR>i
+" Ctrl-S :save
+noremap <silent> <C-S>          :update<CR>
+vnoremap <silent> <C-S>         <C-C>:update<CR>
+inoremap <silent> <C-S>         <C-O>:update<CR>
 
 " mapping
 nnoremap j gj
-nnoremap k gk
+noremap k gk
 nnoremap <down> gj
 nnoremap <up> gk
 nnoremap ; :
